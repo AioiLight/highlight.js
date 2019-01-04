@@ -34,22 +34,30 @@ function(hljs) {
           }, 
         ]
       },
-      //{
-      //  className: 'function',
-      //  begin: ' *#',
-      //  end: '$',
-      //  excludeBegin: false,
-      //  excludeEnd: true,
-      //  contains: [
-      //    {
-      //      className: 'number',
-      //      begin: '\\ ',
-      //      end: '$',
-      //      excludeBegin: true,
-      //      excludeEnd: true,
-      //    }
-      //  ]
-      //},
+      {
+        begin: /.*#/,
+        end: /$/,
+        returnBegin: true,
+        contains: [
+          {
+            className: 'keyword',
+            begin: /.*#/,
+            end: / /,
+            excludeEnd: true,
+            endsWithParent: true,
+            returnBegin: true,
+            contains: [
+              {
+                className: 'number',
+                begin: / /,
+                end: /$/,
+                excludeBegin: true,
+                excludeEnd: true
+              }
+            ]
+          }, 
+        ]
+      },
       {
         className: 'space',
         begin: '0'
