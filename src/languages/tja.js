@@ -9,17 +9,47 @@ function(hljs) {
   return {
     case_insensitive: true,
     contains: [
-      hljs.COMMENT(' *//', '\n'),
+      hljs.COMMENT(' *//', '$'),
       {
-        className: 'meta-keyword',
-        begin: '.*:',
-        end: '\n'
+        begin: /.+:/,
+        end: /$/,
+        returnBegin: true,
+        contains: [
+          {
+            className: 'keyword',
+            begin: /.+/,
+            end: /:/,
+            excludeEnd: true,
+            endsWithParent: true,
+            returnBegin: true,
+            contains: [
+              {
+                className: 'number',
+                begin: /:/,
+                end: /$/,
+                excludeBegin: true,
+                excludeEnd: true
+              }
+            ]
+          }, 
+        ]
       },
-      {
-        className: 'meta-keyword',
-        begin: '.*#',
-        end: '\n'
-      },
+      //{
+      //  className: 'function',
+      //  begin: ' *#',
+      //  end: '$',
+      //  excludeBegin: false,
+      //  excludeEnd: true,
+      //  contains: [
+      //    {
+      //      className: 'number',
+      //      begin: '\\ ',
+      //      end: '$',
+      //      excludeBegin: true,
+      //      excludeEnd: true,
+      //    }
+      //  ]
+      //},
       {
         className: 'space',
         begin: '0'
