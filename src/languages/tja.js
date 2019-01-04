@@ -9,7 +9,7 @@ function(hljs) {
   return {
     case_insensitive: true,
     contains: [
-      hljs.COMMENT(' *//', '$'),
+      hljs.COMMENT('//', '$'),
       {
         begin: /.+:/,
         end: /$/,
