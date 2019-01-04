@@ -81,3 +81,24 @@
 .hljs-strong {
   font-weight: bold;
 }
+
+.hljs-space {
+  color: #444;
+}
+
+.hljs-don {
+  color: #f44;
+}
+
+.hljs-ka {
+  color: #44f;
+}
+
+.hljs-roll {
+  color: #ff4;
+}
+
+.hljs-balloon {
+  color: #f40;
+}
+
